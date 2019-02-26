@@ -1,15 +1,10 @@
-FROM node:10.15.1
+FROM php:apache
 
-COPY package.json .
-RUN npm install
-
-COPY . /app
+COPY . /var/www/html
+WORKDIR /var/www/html
 
 # noop for legacy migration
-RUN echo "#!/bin/bash" > /app/migrate.sh && \
-    chmod +x /app/migrate.sh
+RUN echo "#!/bin/bash" > migrate.sh && \
+    chmod +x migrate.sh
 
 EXPOSE 80
-
-WORKDIR /app
-CMD npm start

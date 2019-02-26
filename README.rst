@@ -1,10 +1,7 @@
-================
-Node Boilerplate
-================
+===============
+PHP Boilerplate
+===============
 
-`Divio Cloud <http://www.divio.com/>`_ based boilerplate to develop with Node.
+`Divio Cloud <http://www.divio.com/>`_ based boilerplate to develop with PHP.
 
-Up to date with `Node LTS <https://nodejs.org/>`_ **10.15.1** (alpine version).
-
-See `Docker Official Images <https://hub.docker.com/_/node/>`_ documentation
-for further information.
+Up to date with `PHP <http://php.net/supported-versions.php>`_ **7.3**.

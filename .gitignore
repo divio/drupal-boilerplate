@@ -15,12 +15,8 @@ __pycache__/
 build/
 dist/
 env/
-
-/~
-/node_modules
-.sass-cache
-*.css.map
-npm-debug.log
-package-lock.json
+data/
 
 local.sqlite
+
+.aldryn
