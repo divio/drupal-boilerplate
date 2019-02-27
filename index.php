@@ -1,10 +1,8 @@
 <html>
  <head>
-  <title>PHP Test</title>
+  <title>PHP Project</title>
  </head>
  <body>
- <?php echo '<p>Hello World</p>'; ?>
- <hr />
- <?php phpinfo(); ?>
+   <?php phpinfo(); ?>
  </body>
 </html>

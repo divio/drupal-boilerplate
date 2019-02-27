@@ -1,0 +1,10 @@
+{
+   "package-name": "php-boilerplate",
+   "templates": [],
+   "identifier": "php",
+   "version": "x.x.x",
+   "excluded": [
+        "LICENSE.txt",
+        ".DS_Store"
+    ]
+}

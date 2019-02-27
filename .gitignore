@@ -1,22 +1,9 @@
-*.py[cod]
-*$py.class
-*.egg-info
-*.log
-*.pot
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# misc
+data
 .DS_Store
-.coverage/
-.eggs/
-.idea/
-.project/
-.pydevproject/
-.settings/
-.tox/
-__pycache__/
-build/
-dist/
-env/
-data/
 
-local.sqlite
-
+# divio cloud
 .aldryn
+migrate.sh
