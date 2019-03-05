@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pgsql pdo pdo_pgsql
 
 # required permissions for installation
-RUN chmod -R 777 sites/
+# RUN chmod -R 777 sites/
 # enable this after the installation and disable the line above
 RUN chmod 755 sites/default
 RUN chmod 755 sites/default/settings.php
