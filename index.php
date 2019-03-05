@@ -3,11 +3,11 @@
   <title>PHP Project</title>
  </head>
  <body>
- <?php echo $_SERVER['DEFAULT_DATABASE_DSN']; ?>
- <?php echo $_SERVER['DATABASE_URL']; ?>
- <?php echo getenv('DATABASE_URL'); ?>
- <?php echo getenv('DEFAULT_DATABASE_DSN'); ?>
-  <?php echo $argv; ?>
+    <h2>Database URL</h2>
+    <?php echo getenv('DATABASE_URL'); ?>
+    <h2>Database DSN</h2>
+    <?php echo getenv('DEFAULT_DATABASE_DSN'); ?>
+    <hr>
   <?php phpinfo(); ?>
  </body>
 </html>
