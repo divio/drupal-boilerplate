@@ -787,7 +787,7 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
   'driver' => 'pgsql',
 );
-$config_directories['sync'] = 'sites/default/files/config_oZaLCS04DmogMKSbInjgV16bzOi6LuiDazz3WLBKVffOncxfo9nEPl8BJPbLlhQ6iPksoHakDg/sync';
-$settings['hash_salt'] = 'I6SxfO3xWScB5N2hUmcqCRotR-pPU1RZRUm6NDxAL2H8_vrUAZLcC3irr_jxc3WV2vVhptNESQ';
+$config_directories['sync'] = 'sites/default/files/config_ZfivxC44maNdn1QaqzfFBeVuLKDnUbw-7TSCAtMTQMfI3GBmQVLRgNl682_HDit_U9qd6Cdagg/sync';
+$settings['hash_salt'] = 'VZXML5_UB1Rref3rSttZ0RtSKBDQK9OKbYYrmXAyZmyc8VQLiZ18-rrtS5ewKvTCZ4huTA2uNw';
 
-// additional settings
+// add your settings here
