@@ -5,8 +5,33 @@
  <body>
     <h2>Database URL</h2>
     <?php echo getenv('DATABASE_URL'); ?>
-    <h2>Database DSN</h2>
-    <?php echo getenv('DEFAULT_DATABASE_DSN'); ?>
+    <hr>
+<pre>
+Database information:
+    postgres://postgres@db:5432/db
+
+<?php
+    $env = getenv('DATABASE_URL');
+    $split = explode('@', $env);
+    $pg_credentials = explode('://', $split[0])[0];
+    $pg_host = explode(':', $split[1])[0];
+    $pg_port = explode('/', explode(':', $split[1])[1])[0];
+    $pg_dbname = explode('/', explode(':', $split[1])[1])[1];
+
+    echo 'Credentials: '.$pg_credentials."\n";
+    echo 'Database: '.$pg_dbname."\n";
+    echo 'Port: '.$pg_port."\n";
+    echo 'Host: '.$pg_host."\n";
+
+    $connection = pg_connect(
+        "host=".$pg_host.
+        " port=".$pg_port.
+        " dbname=".$pg_dbname.
+        " user=".explode(':', $pg_credentials)[0].
+        " password=".explode(':', $pg_credentials)[1]);
+    echo 'Connection successful'
+?>
+</pre>
     <hr>
   <?php phpinfo(); ?>
  </body>

@@ -12,6 +12,8 @@ services:
       - "./data:/data:rw"
     depends_on:
       - db
+    environment:
+      - DATABASE_URL=postgres://postgres@db:5432/db
 
   db:
     image: postgres:9.6-alpine
