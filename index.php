@@ -22,6 +22,8 @@ Database information:
     echo 'Database: '.$pg_dbname."\n";
     echo 'Port: '.$pg_port."\n";
     echo 'Host: '.$pg_host."\n";
+    echo 'Username: '.explode(':', $pg_credentials)[0]."\n";
+    echo 'Password: '.explode(':', $pg_credentials)[1]."\n";
 
     $connection = pg_connect(
         "host=".$pg_host.
