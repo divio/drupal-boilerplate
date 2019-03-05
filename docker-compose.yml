@@ -8,8 +8,11 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ".:/var/www/html:rw"
       - "./data:/data:rw"
+      - "./modules:/var/www/html/modules:rw"
+      - "./profiles:/var/www/html/profiles:rw"
+      - "./themes:/var/www/html/themes:rw"
+      - "./sites:/var/www/html/sites:rw"
     depends_on:
       - db
     environment:
@@ -23,3 +26,9 @@ services:
     volumes:
       - "./data/db:/var/lib/postgresql/data:rw"
       - ".:/var/www/html:rw"
+
+volumes:
+    modules:
+    profiles:
+    themes:
+    sites:
