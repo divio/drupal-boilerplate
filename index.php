@@ -13,7 +13,7 @@ Database information:
 <?php
     $env = getenv('DATABASE_URL');
     $split = explode('@', $env);
-    $pg_credentials = explode('://', $split[0])[0];
+    $pg_credentials = str_replace('postgres://', '', $split[0]);
     $pg_host = explode(':', $split[1])[0];
     $pg_port = explode('/', explode(':', $split[1])[1])[0];
     $pg_dbname = explode('/', explode(':', $split[1])[1])[1];
