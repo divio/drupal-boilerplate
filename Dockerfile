@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pgs
 # enable this after the installation and disable the line above
 RUN chmod 755 sites/default
 RUN chmod 755 sites/default/settings.php
+RUN chmod -R 777 sites/default/files/
 
 # noop files for non python projects and local development
 RUN mkdir /app
