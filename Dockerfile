@@ -6,6 +6,9 @@ WORKDIR /var/www/html
 # install postgres driver
 RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pgsql pdo pdo_pgsql
 
+# required permissions for installation
+RUN chmod -R 777 sites/
+
 # noop files for non python projects and local development
 RUN mkdir /app
 RUN echo "#!/bin/bash" > /app/migrate.sh && chmod +x /app/migrate.sh
