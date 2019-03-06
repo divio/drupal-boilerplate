@@ -6,19 +6,25 @@ Drupal Boilerplate
 
 Up to date with `Drupal <https://www.drupal.org/>`_ **8.6**.
 
+.. WARNING:
+
+    This is experimental, additional adaptions may need to be required.
+
 
 Configuration
 =============
 
-To connect to the database the following settings are required during
-the installation process:
+This installation provides a pre-defined settings.php file with the necessary database
+connection settings. Please review these for your own security.
 
-* Database type: **PostgreSQL**
-* Database name: **db**
-* Database username: **postgres**
-* Host: **postgres**
-* Port number: **5432**
+Once the project has been installed (dev and live) commet line 10 in ``Dockerfile`` and
+uncomment lines 12-14.
 
-DEFAULT_DATABASE_DSN
 
-The remaining settings stay unchanged.
+Divio Cloud
+===========
+
+The following features are not yet compatible with this boilerplate
+
+* Copy database between environments
+* 
