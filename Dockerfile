@@ -1,5 +1,5 @@
-FROM php:7.3-apache
-# FROM drupal:8.6-apache
+# FROM php:7.3-apache
+FROM drupal:8.6-apache
 
 COPY . /var/www/html
 WORKDIR /var/www/html

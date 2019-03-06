@@ -8,6 +8,7 @@ services:
     ports:
       - "8000:80"
     volumes:
+      - ".:/var/www/html:rw"
       - "./data:/data:rw"
       - "./modules:/var/www/html/modules:rw"
       - "./profiles:/var/www/html/profiles:rw"
