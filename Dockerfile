@@ -1,4 +1,5 @@
-FROM drupal:8.6-apache
+FROM php:7.3-apache
+# FROM drupal:8.6-apache
 
 COPY . /var/www/html
 WORKDIR /var/www/html
@@ -9,9 +10,9 @@ RUN apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pgs
 # required permissions for installation
 # RUN chmod -R 777 sites/
 # enable this after the installation and disable the line above
-RUN chmod 755 sites/default
-RUN chmod 755 sites/default/settings.php
-RUN chmod -R 777 sites/default/files/
+# RUN chmod 755 sites/default
+# RUN chmod 755 sites/default/settings.php
+# RUN chmod -R 777 sites/default/files/
 
 # noop files for non python projects and local development
 RUN mkdir /app
