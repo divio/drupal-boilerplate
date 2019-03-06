@@ -769,14 +769,11 @@ $settings['entity_update_batch_size'] = 50;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 
-// use environment variable from Divio Cloud
-$env = getenv('DATABASE_URL');
-$split = explode('@', $env);
-$pg_credentials = str_replace('postgres://', '', $split[0]);
-$pg_host = explode(':', $split[1])[0];
-$pg_port = explode('/', explode(':', $split[1])[1])[0];
-$pg_dbname = explode('/', explode(':', $split[1])[1])[1];
-
+// use database environment variable from Divio Cloud
+$DEFAULT_DATABASE_DSN = str_replace('postgres://', '', getenv('DEFAULT_DATABASE_DSN') ?: 'postgres://postgres@db:5432/db');
+// split $DEFAULT_DATABASE_DSN by "/", "@" and the last matching ":" and assign to variables
+list($pg_credentials, $pg_host, $pg_port, $pg_dbname) = preg_split('/(\/)|(@)|(:(?!.*:))/', $DEFAULT_DATABASE_DSN);
+// database settings from Drupal
 $databases['default']['default'] = array (
   'database' => $pg_dbname,
   'username' => explode(':', $pg_credentials)[0],
@@ -787,7 +784,7 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
   'driver' => 'pgsql',
 );
+$settings['hash_salt'] = getenv('SECRET_KEY') ?: 'localdev';
 $config_directories['sync'] = 'sites/default/files/config_ZfivxC44maNdn1QaqzfFBeVuLKDnUbw-7TSCAtMTQMfI3GBmQVLRgNl682_HDit_U9qd6Cdagg/sync';
-$settings['hash_salt'] = 'VZXML5_UB1Rref3rSttZ0RtSKBDQK9OKbYYrmXAyZmyc8VQLiZ18-rrtS5ewKvTCZ4huTA2uNw';
 
 // add your settings here

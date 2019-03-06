@@ -11,10 +11,53 @@
 
 <pre class="jumbotron pt-0 pb-0"><code>
 DEFAULT_DATABASE_DSN
-    <?php echo getenv('DEFAULT_DATABASE_DSN'); ?>
+    <?php echo getenv('DEFAULT_DATABASE_DSN') or ''; ?>
+    <?php
+        // https://docs.divio.com/en/latest/how-to/interact-database.html?highlight=database
+        // postgres://postgres@db:5432/db
+        $DEFAULT_DATABASE_DSN = str_replace('postgres://', '', getenv('DEFAULT_DATABASE_DSN') ?: 'postgres://postgres@db:5432/db');
+        list($pg_credentials, $pg_host, $pg_port, $pg_dbname) = preg_split('/(\/)|(@)|(:(?!.*:))/', $DEFAULT_DATABASE_DSN);
+    echo 'postgres://'.$pg_credentials.'@'.$pg_host.':'.$pg_port.'/'.$pg_dbname;
+    ?>
 
 DEFAULT_STORAGE_DSN
     <?php echo getenv('DEFAULT_STORAGE_DSN'); ?>
+    <?php
+        // http://docs.divio.com/en/latest/how-to/interact-storage.html#obtain-your-storage-access-details
+        // s3://key:secret@bucket/?params
+        $DEFAULT_STORAGE_DSN = str_replace('s3://', '', getenv('DEFAULT_STORAGE_DSN'));
+        list($s3_key, $s3_secret, $s3_bucket, $s3_params) = preg_split('/(:)|(@)|(\/\?)/', $DEFAULT_STORAGE_DSN);
+        echo 's3://'.$s3_key.':'.$s3_secret.'@'.$s3_bucket.'/?'.$s3_params;
+    ?>
+
+SECRET_KEY
+    <?php echo getenv('SECRET_KEY'); ?>
+
+DEBUG
+    <?php echo getenv('DEBUG'); ?>
+
+SENTRY_DSN
+    <?php echo getenv('SENTRY_DSN'); ?>
+
+DOMAIN
+    <?php echo getenv('DOMAIN'); ?>
+
+DOMAIN_ALIASES
+    <?php echo getenv('DOMAIN_ALIASES'); ?>
+
+SITE_NAME
+    <?php echo getenv('SITE_NAME'); ?>
+
+LANGUAGES
+    <?php echo getenv('LANGUAGES'); ?>
+
+LANGUAGE_CODES
+    <?php echo getenv('LANGUAGE_CODES'); ?>
+
+STAGE
+    <?php echo getenv('STAGE'); ?> (or local)
+
+<hr />
 
 MEDIA_URL
     <?php echo getenv('MEDIA_URL'); ?>
@@ -37,41 +80,17 @@ STATIC_ROOT
 STATICFILES_DIRS
     <?php echo getenv('STATICFILES_DIRS'); ?>
 
-SECRET_KEY
-    <?php echo getenv('SECRET_KEY'); ?>
-
 TIME_ZONE
     <?php echo getenv('TIME_ZONE'); ?>
-
-DEBUG
-    <?php echo getenv('DEBUG'); ?>
 
 ROOT_URLCONF
     <?php echo getenv('ROOT_URLCONF'); ?>
 
-SENTRY_DSN
-    <?php echo getenv('SENTRY_DSN'); ?>
-
-DOMAIN
-    <?php echo getenv('DOMAIN'); ?>
-
 ALLOWED_HOSTS
     <?php echo getenv('ALLOWED_HOSTS'); ?>
 
-DOMAIN_ALIASES
-    <?php echo getenv('DOMAIN_ALIASES'); ?>
-
-SITE_NAME
-    <?php echo getenv('SITE_NAME'); ?>
-
 DISABLE_S3_MEDIA_HEADERS_UPDATE
     <?php echo getenv('DISABLE_S3_MEDIA_HEADERS_UPDATE'); ?>
-
-LANGUAGES
-    <?php echo getenv('LANGUAGES'); ?>
-
-LANGUAGE_CODES
-    <?php echo getenv('LANGUAGE_CODES'); ?>
 
 DISABLE_GZIP
     <?php echo getenv('DISABLE_GZIP'); ?>
@@ -79,8 +98,10 @@ DISABLE_GZIP
 ALDRYN_SITES_DOMAINS
     <?php echo getenv('ALDRYN_SITES_DOMAINS'); ?>
 
-STAGE
-    <?php echo getenv('STAGE'); ?> (or local)
+
+
+
+
 
 </code></pre>
 </div>
