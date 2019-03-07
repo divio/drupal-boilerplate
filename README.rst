@@ -24,3 +24,13 @@ the following packages are additionally installed for S3::
 
 This installation provides a pre-defined ``default.settings.php`` file with the necessary database
 connection settings for **Postgres**. Please review these for your own security.
+
+
+Local development
+-----------------
+
+To work locally you additionally need to run::
+
+    docker-compose run --rm web composer update
+
+After the setup.
