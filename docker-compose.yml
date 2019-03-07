@@ -10,10 +10,6 @@ services:
     volumes:
       - ".:/app:rw"
       - "./data:/data:rw"
-      # - "./web/modules:/var/www/html/modules"
-      # - "./web/profiles:/var/www/html/profiles"
-      # - "./web/themes:/var/www/html/themes"
-      # - "./web/sites:/var/www/html/sites"
     depends_on:
       - db
     environment:

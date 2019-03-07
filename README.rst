@@ -14,6 +14,8 @@ Up to date with `Drupal <https://www.drupal.org/>`_ **8.6.10**.
 Configuration
 =============
 
+Ships with drush, compose and drupal-project template.
+
 Project setup using https://github.com/drupal-composer/drupal-project
 
 installed via
