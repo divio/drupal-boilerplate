@@ -16,12 +16,17 @@ RUN wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/down
 	chmod +x drush.phar && \
 	mv drush.phar /usr/local/bin/drush
 
+# We will use the Drupal version from Composer rather than the version that ships with Docker
 RUN rm -rf /var/www/html/*
 
 COPY apache-drupal.conf /etc/apache2/sites-enabled/000-default.conf
 
-# COPY . /app
+COPY . /app
 WORKDIR /app
+
+# setup Drupal
+# RUN composer install
+RUN chown -R www-data:www-data /app/web
 
 # RUN composer update
 

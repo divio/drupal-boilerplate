@@ -17,9 +17,10 @@ Configuration
 Project setup using https://github.com/drupal-composer/drupal-project
 
 installed via
-composer create-project drupal-composer/drupal-project:8.x-dev /app --stability dev --no-interaction
-mkdir -p /app/config/sync
-chown -R www-data:www-data /app/web
+composer create-project drupal-composer/drupal-project:8.x-dev . --stability dev --no-interaction
+mkdir -p /config/sync
+chown -R www-data:www-data /web
+mkdir -p /config/sync
 
 This installation provides a pre-defined settings.php file with the necessary database
 connection settings. Please review these for your own security.
