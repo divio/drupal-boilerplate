@@ -1,8 +1,8 @@
 {
-   "package-name": "php-boilerplate",
+   "package-name": "drupal-boilerplate",
    "templates": [],
    "identifier": "php",
-   "version": "x.x.x",
+   "version": "8.6.10",
    "excluded": [
         "LICENSE.txt",
         ".DS_Store"

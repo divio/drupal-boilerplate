@@ -4,7 +4,7 @@ Drupal Boilerplate
 
 `Divio Cloud <http://www.divio.com/>`_ based boilerplate to develop with Drupal.
 
-Up to date with `Drupal <https://www.drupal.org/>`_ **8.6**.
+Up to date with `Drupal <https://www.drupal.org/>`_ **8.6.10**.
 
 .. WARNING:
 
@@ -13,6 +13,9 @@ Up to date with `Drupal <https://www.drupal.org/>`_ **8.6**.
 
 Configuration
 =============
+
+Project setup using https://github.com/drupal-composer/drupal-project
+
 
 This installation provides a pre-defined settings.php file with the necessary database
 connection settings. Please review these for your own security.
