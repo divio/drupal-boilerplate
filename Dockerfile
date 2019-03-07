@@ -25,10 +25,8 @@ COPY . /app
 WORKDIR /app
 
 # setup Drupal
-# RUN composer install
+RUN composer install
 RUN chown -R www-data:www-data /app/web
-
-# RUN composer update
 
 # required permissions for installation
 # RUN chmod -R 777 sites/

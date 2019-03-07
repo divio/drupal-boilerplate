@@ -22,6 +22,10 @@ mkdir -p /config/sync
 chown -R www-data:www-data /web
 mkdir -p /config/sync
 
+the following packages are additionally installed for S3:
+composer require drupal/s3fs
+
+
 This installation provides a pre-defined settings.php file with the necessary database
 connection settings. Please review these for your own security.
 
