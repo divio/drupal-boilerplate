@@ -27,10 +27,9 @@ connection settings for **Postgres**. Please review these for your own security.
 
 
 Local development
------------------
+=================
 
-To work locally you additionally need to run::
+This boilerplate installs the Composer dependencies into the Docker container. To work locally you
+need to run::
 
     docker-compose run --rm web composer update
-
-After the setup.

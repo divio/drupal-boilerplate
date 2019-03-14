@@ -2,7 +2,7 @@
 FROM drupal:8.6.10-apache
 
 # install postgres driver
-RUN apt-get update && apt-get install -y wget git
+RUN apt-get update && apt-get install -y wget unzip git
 # database setup
 RUN apt-get install -y libpq-dev && docker-php-ext-install pgsql pdo pdo_pgsql
 # install php package manager
@@ -24,16 +24,9 @@ COPY apache-drupal.conf /etc/apache2/sites-enabled/000-default.conf
 COPY . /app
 WORKDIR /app
 
-# setup Drupal
+# setup dependencies
 RUN composer update
 RUN chown -R www-data:www-data /app/web
-
-# required permissions for installation
-# RUN chmod -R 777 sites/
-# enable this after the installation and disable the line above
-# RUN chmod 755 sites/default
-# RUN chmod 755 sites/default/settings.php
-# RUN chmod -R 777 sites/default/files/
 
 # noop files for non python projects and local development
 RUN echo "#!/bin/bash" > /app/migrate.sh && chmod +x /app/migrate.sh

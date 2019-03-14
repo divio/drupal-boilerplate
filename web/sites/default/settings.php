@@ -794,4 +794,18 @@ $databases['default']['default'] = array (
 $settings['hash_salt'] = $SECRET_KEY;
 $config_directories['sync'] = 'sites/default/files/config_'.$SECRET_KEY.'/sync';
 
+// setup S3 connection
+// http://cgit.drupalcode.org/s3fs/tree/README.txt
+$DEFAULT_STORAGE_DSN = getenv('DEFAULT_STORAGE_DSN') ?: '';
+// gets bucket, key, path, region
+list($s3_protocoll, $s3_key, $s3_secret, $s3_bucket, $s3_params) = preg_split('/(s3:\/\/)|(:)|(@)|(\/\?)/', $DEFAULT_STORAGE_DSN);
+
+$conf['awssdk2_access_key'] = $s3_key;
+$conf['awssdk2_secret_key'] = $s3_secret;
+$conf['s3fs_bucket'] = explode('.s3.', $s3_bucket)[0];
+
+$settings['s3fs.access_key'] = $s3_key;
+$settings['s3fs.secret_key'] = $s3_secret;
+$config['s3fs.settings']['bucket'] = explode('.s3.', $s3_bucket)[0];
+
 // add your Drupal settings here
