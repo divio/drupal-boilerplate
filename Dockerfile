@@ -1,9 +1,9 @@
 # FROM php:7.3-apache
 FROM drupal:8.6.10-apache
 
-# install postgres driver
+# install missing requirements
 RUN apt-get update && apt-get install -y wget unzip git
-# database setup
+# install postgres driver
 RUN apt-get install -y libpq-dev && docker-php-ext-install pgsql pdo pdo_pgsql
 # install php package manager
 # based on https://github.com/drupal-composer/drupal-project
