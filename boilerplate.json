@@ -2,9 +2,15 @@
    "package-name": "drupal-boilerplate",
    "templates": [],
    "identifier": "php",
-   "version": "8.6.10",
+   "version": "8.6.10.1",
    "excluded": [
         "LICENSE.txt",
-        ".DS_Store"
+        ".DS_Store",
+        ".aldryn",
+        "data/",
+        "web/core/",
+        ".vscode/",
+        "web/modules/contrib/",
+        "web/sites/default/files/"
     ]
 }
